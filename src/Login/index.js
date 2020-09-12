@@ -4,7 +4,15 @@ import firebase from '../services/init-firebase'
 export default function Login() {
 
   function showCurrentUser() {
-    console.log(firebase.auth().currentUser);
+    if (firebase.auth().currentUser)
+      console.log(firebase.auth().currentUser.email);
+  }
+
+  function handleSingOut() {
+    if (firebase.auth().currentUser) {
+      firebase.auth().signOut()
+      // console.log("User has singOut");
+    }
   }
 
   function handleSignUp() {
@@ -32,10 +40,11 @@ export default function Login() {
   }
 
   return <>
-    <h1>Login</h1>
+    <h2>Login</h2>
     <input type="email" id="email-l" placeholder="email" />
     <input type="password" id="password-l" placeholder="password" />
     <button type="submit" onClick={handleSignUp}>Enviar</button>
     <button type="button" onClick={showCurrentUser}>Usuário Logado</button>
+    <button type="button" onClick={handleSingOut}>Deslogar Usuário</button>
   </>
 }

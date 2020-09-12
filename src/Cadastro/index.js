@@ -27,7 +27,7 @@ export default function Cadastro() {
   }
 
   return <>
-    <h1>Cadrastro</h1>
+    <h2>Cadrastro</h2>
     <input type="email" id="email-c" placeholder="email" />
     <input type="password" id="password-c" placeholder="password" />
     <button type="submit" onClick={handleSignUp}>Enviar</button>
